@@ -1,0 +1,10 @@
+{
+  "name": "ORLYNZA Mission Control",
+  "short_name": "ORLYNZA",
+  "description": "Five autonomous AI units. One coordinated business mission.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050b16",
+  "theme_color": "#050b16",
+  "icons": []
+}

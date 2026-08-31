@@ -160,12 +160,18 @@ em { color: var(--gold-bright); font-style: normal; font-weight: 300; }
 .card-top { position: relative; z-index: 1; display: flex; justify-content: space-between; color: #5d6979; font-size: .52rem; letter-spacing: .16em; }
 .card-top i { color: #7c8795; font-style: normal; }
 .unit-card.is-selected .card-top i { color: var(--success); }
-.unit-glyph { position: relative; z-index: 1; width: 7.5rem; height: 7.5rem; margin: 3.3rem auto 2.2rem; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; transition: transform .55s var(--ease), border-color .35s; }
+.unit-glyph { position: relative; z-index: 1; width: 7.5rem; height: 7.5rem; margin: 3.3rem auto 2.2rem; display: grid; place-items: center; overflow: hidden; isolation: isolate; border: 1px solid var(--line); border-radius: 50%; background: #081421; transition: transform .55s var(--ease), border-color .35s; }
 .unit-glyph::before, .unit-glyph::after { content: ""; position: absolute; border-radius: 50%; }
 .unit-glyph::before { inset: .7rem; border: 1px dashed rgba(202,165,91,.26); animation: spin 20s linear infinite; }
 .unit-glyph::after { inset: 2.1rem; background: radial-gradient(circle, rgba(239,207,131,.3), rgba(202,165,91,.04) 50%, transparent 52%); border: 1px solid rgba(202,165,91,.35); box-shadow: 0 0 30px rgba(202,165,91,.08); }
-.unit-glyph span { position: relative; z-index: 1; color: var(--gold-bright); font: 300 1.7rem/1 var(--display); }
+.unit-glyph .robot-watermark { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(202,165,91,.08), rgba(5,11,22,.16)), url("assets/orlynza-command-deck.jpg"); background-size: 100% 100%, 500% auto; background-repeat: no-repeat; background-position: center, 50% 60%; filter: grayscale(1) sepia(.35) contrast(1.3) brightness(.8); opacity: .62; mix-blend-mode: screen; transform: scale(1.12); transition: opacity .4s var(--ease), transform .55s var(--ease); }
+.glyph-archon .robot-watermark { background-position: center, 5% 60%; }
+.glyph-forge .robot-watermark { background-position: center, 31% 60%; }
+.glyph-muse .robot-watermark { background-position: center, 50% 60%; }
+.glyph-vector .robot-watermark { background-position: center, 70% 60%; }
+.glyph-aegis .robot-watermark { background-position: center, 95% 60%; }
 .unit-card:hover .unit-glyph, .unit-card.is-selected .unit-glyph { transform: rotate(-4deg) scale(1.06); border-color: var(--gold); }
+.unit-card:hover .robot-watermark, .unit-card.is-selected .robot-watermark { opacity: .82; transform: scale(1.04); }
 .unit-card h3 { position: relative; z-index: 1; margin: 0; font: 400 2.25rem/1 var(--display); letter-spacing: .04em; }
 .unit-role { position: relative; z-index: 1; margin: .55rem 0 1.5rem; color: var(--gold); font-size: .57rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .unit-desc { position: relative; z-index: 1; min-height: 5.2rem; color: #8995a4; font-size: .77rem; line-height: 1.65; }

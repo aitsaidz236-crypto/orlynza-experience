@@ -171,14 +171,26 @@ em { color: var(--gold-bright); font-style: normal; font-weight: 300; }
 .glyph-muse .unit-core { width: .95rem; height: 1.55rem; border-radius: 50% 50% 45% 45%; transform: none; }
 .glyph-vector .unit-core { width: 1.35rem; height: .8rem; border-width: 1px 1px 0 0; transform: rotate(45deg); }
 .glyph-aegis .unit-core { width: 1.25rem; height: 1.45rem; border-radius: 50% 50% 45% 45%; transform: none; }
-.unit-robot { position: absolute; z-index: 2; top: 50%; left: 50%; width: 8.5rem; height: 13.5rem; pointer-events: none; opacity: 0; background-size: contain; background-repeat: no-repeat; background-position: center bottom; filter: drop-shadow(0 1.5rem 1.35rem rgba(0,0,0,.68)) drop-shadow(0 0 1.1rem rgba(202,165,91,.12)); transform: translate(28%,-42%) scale(.72); transform-origin: 50% 100%; transition: opacity .22s ease, transform .68s var(--ease), filter .5s ease; }
-.robot-archon { background-image: url("assets/unit-archon.png"); }
-.robot-forge { background-image: url("assets/unit-forge.png"); }
-.robot-muse { background-image: url("assets/unit-muse.png"); }
-.robot-vector { background-image: url("assets/unit-vector.png"); }
-.robot-aegis { background-image: url("assets/unit-aegis.png"); }
+.unit-robot { position: absolute; z-index: 2; top: 50%; left: 50%; width: 8.5rem; height: 13.5rem; pointer-events: none; opacity: 0; filter: drop-shadow(0 1.5rem 1.35rem rgba(0,0,0,.68)) drop-shadow(0 0 1.1rem rgba(202,165,91,.12)); transform: translate(28%,-42%) scale(.72); transform-origin: 50% 100%; transition: opacity .22s ease, transform .68s var(--ease), filter .5s ease; }
+.robot-archon { --robot-image: url("assets/unit-archon.png"); }
+.robot-forge { --robot-image: url("assets/unit-forge.png"); }
+.robot-muse { --robot-image: url("assets/unit-muse.png"); }
+.robot-vector { --robot-image: url("assets/unit-vector.png"); }
+.robot-aegis { --robot-image: url("assets/unit-aegis.png"); }
+.robot-body { position: absolute; z-index: 2; inset: 0; background-image: var(--robot-image); background-size: contain; background-repeat: no-repeat; background-position: center bottom; transform-origin: 50% 86%; will-change: transform, filter; }
+.robot-body::after { content: ""; position: absolute; inset: 0; opacity: 0; background: linear-gradient(180deg, transparent 0 38%, rgba(239,207,131,.85) 48%, rgba(84,185,255,.55) 51%, transparent 61%); -webkit-mask-image: var(--robot-image); mask-image: var(--robot-image); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center bottom; mask-position: center bottom; mix-blend-mode: screen; transform: translateY(-62%); }
+.robot-scan { position: absolute; z-index: 1; left: 8%; right: 8%; bottom: .1rem; height: 1.45rem; opacity: 0; border: 1px solid rgba(202,165,91,.62); border-radius: 50%; box-shadow: 0 0 1rem rgba(202,165,91,.22), inset 0 0 1rem rgba(202,165,91,.15); transform: scale(.45); }
+.robot-scan::before, .robot-scan::after { content: ""; position: absolute; inset: 20%; border: 1px solid rgba(84,185,255,.35); border-radius: inherit; }
+.robot-scan::after { inset: -35%; border-color: rgba(202,165,91,.18); }
 .unit-card:is(:hover,:focus,:focus-within) .unit-glyph { transform: translateX(-2.7rem) rotate(-4deg) scale(.92); border-color: var(--gold); box-shadow: inset 0 0 2.5rem rgba(202,165,91,.08), 0 0 2rem rgba(202,165,91,.06); }
 .unit-card:is(:hover,:focus,:focus-within) .unit-robot { opacity: 1; transform: translate(-4%,-50%) scale(.96); }
+.unit-card:is(:hover,:focus,:focus-within) .robot-body::after { animation: armorScan 2.9s .55s linear infinite; }
+.unit-card:is(:hover,:focus,:focus-within) .robot-scan { animation: groundSignal 2.2s .25s ease-out infinite; }
+.unit-card:is(:hover,:focus,:focus-within) .robot-archon .robot-body { animation: archonCommand 3.8s .55s ease-in-out infinite; }
+.unit-card:is(:hover,:focus,:focus-within) .robot-forge .robot-body { animation: forgeCalibrate 2.9s .45s ease-in-out infinite; }
+.unit-card:is(:hover,:focus,:focus-within) .robot-muse .robot-body { animation: museFloat 4.2s .5s ease-in-out infinite; }
+.unit-card:is(:hover,:focus,:focus-within) .robot-vector .robot-body { animation: vectorScan 2.65s .4s ease-in-out infinite; }
+.unit-card:is(:hover,:focus,:focus-within) .robot-aegis .robot-body { animation: aegisPower 3.3s .5s ease-in-out infinite; }
 .unit-card h3 { position: relative; z-index: 1; margin: 0; font: 400 2.25rem/1 var(--display); letter-spacing: .04em; }
 .unit-role { position: relative; z-index: 1; margin: .55rem 0 1.5rem; color: var(--gold); font-size: .57rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .unit-desc { position: relative; z-index: 1; min-height: 5.2rem; color: #8995a4; font-size: .77rem; line-height: 1.65; }
@@ -272,6 +284,13 @@ footer > a span { margin-left: .6rem; color: var(--gold); }
 @keyframes scrollCue { 50% { transform: translateY(.4rem); opacity: .35; } }
 @keyframes blink { 50% { opacity: 0; } }
 @keyframes modalIn { from { opacity: 0; transform: translateY(1rem) scale(.98); } }
+@keyframes armorScan { 0%,18% { opacity: 0; transform: translateY(-62%); } 28% { opacity: .72; } 58% { opacity: .16; } 68%,100% { opacity: 0; transform: translateY(62%); } }
+@keyframes groundSignal { 0% { opacity: 0; transform: scale(.45); } 24% { opacity: .78; } 72%,100% { opacity: 0; transform: scale(1.18); } }
+@keyframes archonCommand { 0%,100% { transform: translateY(0) rotate(-.25deg); } 42% { transform: translateY(-.16rem) rotate(.45deg); } 68% { transform: translateY(-.04rem) scale(1.012); } }
+@keyframes forgeCalibrate { 0%,100% { transform: translate(0,0) rotate(0); } 30% { transform: translate(-.08rem,-.18rem) rotate(-.75deg); } 58% { transform: translate(.1rem,-.04rem) rotate(.65deg); } 76% { transform: translate(0,-.12rem) rotate(0); } }
+@keyframes museFloat { 0%,100% { transform: translateY(.06rem) rotate(-.18deg); filter: brightness(.96); } 50% { transform: translateY(-.35rem) rotate(.28deg) scale(1.01); filter: brightness(1.08); } }
+@keyframes vectorScan { 0%,100% { transform: translate(0,0) rotate(0); } 24% { transform: translate(-.1rem,-.16rem) rotate(-.55deg); } 48% { transform: translate(.1rem,-.3rem) rotate(.65deg); } 72% { transform: translate(.04rem,-.08rem) rotate(-.2deg); } }
+@keyframes aegisPower { 0%,100% { transform: translateY(.04rem) scale(1); filter: brightness(.96); } 42% { transform: translateY(-.1rem) scale(1.018); filter: brightness(1.1); } 62% { transform: translateY(.02rem) scale(1.006); filter: brightness(1.02); } }
 
 @media (max-width: 1180px) {
   .command-deck { grid-template-columns: minmax(16rem,.8fr) minmax(28rem,1.4fr); }

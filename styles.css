@@ -160,18 +160,25 @@ em { color: var(--gold-bright); font-style: normal; font-weight: 300; }
 .card-top { position: relative; z-index: 1; display: flex; justify-content: space-between; color: #5d6979; font-size: .52rem; letter-spacing: .16em; }
 .card-top i { color: #7c8795; font-style: normal; }
 .unit-card.is-selected .card-top i { color: var(--success); }
-.unit-glyph { position: relative; z-index: 1; width: 7.5rem; height: 7.5rem; margin: 3.3rem auto 2.2rem; display: grid; place-items: center; overflow: hidden; isolation: isolate; border: 1px solid var(--line); border-radius: 50%; background: #081421; transition: transform .55s var(--ease), border-color .35s; }
+.unit-visual { position: relative; z-index: 1; height: 12rem; margin: 2.5rem 0 1.5rem; display: grid; place-items: center; }
+.unit-glyph { position: relative; z-index: 1; width: 7.5rem; height: 7.5rem; display: grid; place-items: center; isolation: isolate; border: 1px solid var(--line); border-radius: 50%; background: radial-gradient(circle at 50% 48%, rgba(202,165,91,.08), transparent 44%), #081421; box-shadow: inset 0 0 2rem rgba(202,165,91,.025); transition: transform .65s var(--ease), border-color .35s, box-shadow .35s; }
 .unit-glyph::before, .unit-glyph::after { content: ""; position: absolute; border-radius: 50%; }
 .unit-glyph::before { inset: .7rem; border: 1px dashed rgba(202,165,91,.26); animation: spin 20s linear infinite; }
 .unit-glyph::after { inset: 2.1rem; background: radial-gradient(circle, rgba(239,207,131,.3), rgba(202,165,91,.04) 50%, transparent 52%); border: 1px solid rgba(202,165,91,.35); box-shadow: 0 0 30px rgba(202,165,91,.08); }
-.unit-glyph .robot-watermark { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(202,165,91,.08), rgba(5,11,22,.16)), url("assets/orlynza-command-deck.jpg"); background-size: 100% 100%, 500% auto; background-repeat: no-repeat; background-position: center, 50% 60%; filter: grayscale(1) sepia(.35) contrast(1.3) brightness(.8); opacity: .62; mix-blend-mode: screen; transform: scale(1.12); transition: opacity .4s var(--ease), transform .55s var(--ease); }
-.glyph-archon .robot-watermark { background-position: center, 5% 60%; }
-.glyph-forge .robot-watermark { background-position: center, 31% 60%; }
-.glyph-muse .robot-watermark { background-position: center, 50% 60%; }
-.glyph-vector .robot-watermark { background-position: center, 70% 60%; }
-.glyph-aegis .robot-watermark { background-position: center, 95% 60%; }
-.unit-card:hover .unit-glyph, .unit-card.is-selected .unit-glyph { transform: rotate(-4deg) scale(1.06); border-color: var(--gold); }
-.unit-card:hover .robot-watermark, .unit-card.is-selected .robot-watermark { opacity: .82; transform: scale(1.04); }
+.unit-core { position: relative; z-index: 2; width: 1.15rem; height: 1.15rem; border: 1px solid var(--gold-bright); box-shadow: 0 0 1.2rem rgba(239,207,131,.35); transform: rotate(45deg); }
+.unit-core::before { content: ""; position: absolute; inset: .27rem; border-radius: 50%; background: var(--gold-bright); box-shadow: 0 0 .65rem var(--gold); }
+.glyph-forge .unit-core { border-radius: 50%; transform: none; }
+.glyph-muse .unit-core { width: .95rem; height: 1.55rem; border-radius: 50% 50% 45% 45%; transform: none; }
+.glyph-vector .unit-core { width: 1.35rem; height: .8rem; border-width: 1px 1px 0 0; transform: rotate(45deg); }
+.glyph-aegis .unit-core { width: 1.25rem; height: 1.45rem; border-radius: 50% 50% 45% 45%; transform: none; }
+.unit-robot { position: absolute; z-index: 2; top: 50%; left: 50%; width: 8.5rem; height: 13.5rem; pointer-events: none; opacity: 0; background-size: contain; background-repeat: no-repeat; background-position: center bottom; filter: drop-shadow(0 1.5rem 1.35rem rgba(0,0,0,.68)) drop-shadow(0 0 1.1rem rgba(202,165,91,.12)); transform: translate(28%,-42%) scale(.72); transform-origin: 50% 100%; transition: opacity .22s ease, transform .68s var(--ease), filter .5s ease; }
+.robot-archon { background-image: url("assets/unit-archon.png"); }
+.robot-forge { background-image: url("assets/unit-forge.png"); }
+.robot-muse { background-image: url("assets/unit-muse.png"); }
+.robot-vector { background-image: url("assets/unit-vector.png"); }
+.robot-aegis { background-image: url("assets/unit-aegis.png"); }
+.unit-card:is(:hover,:focus,:focus-within) .unit-glyph { transform: translateX(-2.7rem) rotate(-4deg) scale(.92); border-color: var(--gold); box-shadow: inset 0 0 2.5rem rgba(202,165,91,.08), 0 0 2rem rgba(202,165,91,.06); }
+.unit-card:is(:hover,:focus,:focus-within) .unit-robot { opacity: 1; transform: translate(-4%,-50%) scale(.96); }
 .unit-card h3 { position: relative; z-index: 1; margin: 0; font: 400 2.25rem/1 var(--display); letter-spacing: .04em; }
 .unit-role { position: relative; z-index: 1; margin: .55rem 0 1.5rem; color: var(--gold); font-size: .57rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .unit-desc { position: relative; z-index: 1; min-height: 5.2rem; color: #8995a4; font-size: .77rem; line-height: 1.65; }

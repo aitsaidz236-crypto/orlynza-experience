@@ -1,10 +1,10 @@
 {
-  "name": "ORLYNZA Mission Control",
+  "name": "ORLYNZA 2080 — Neural Mission System",
   "short_name": "ORLYNZA",
-  "description": "Five autonomous AI units. One coordinated business mission.",
+  "description": "Five autonomous intelligence units. One human-controlled mission system.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#050b16",
-  "theme_color": "#050b16",
+  "background_color": "#02050d",
+  "theme_color": "#020611",
   "icons": []
 }

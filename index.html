@@ -3,309 +3,260 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="ORLYNZA Mission Control — assemble five specialized AI units and launch a coordinated business mission."
-    />
-    <meta name="theme-color" content="#050b16" />
-    <meta property="og:title" content="ORLYNZA — Mission Control" />
-    <meta
-      property="og:description"
-      content="Five autonomous units. One coordinated mission."
-    />
+    <meta name="description" content="ORLYNZA 2080 — five autonomous intelligence units orchestrated through one cinematic mission system." />
+    <meta name="theme-color" content="#020611" />
+    <meta property="og:title" content="ORLYNZA 2080 — Neural Mission System" />
+    <meta property="og:description" content="Five autonomous units. One coordinated intelligence." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/orlynza-command-deck.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ORLYNZA — Mission Control" />
-    <meta
-      name="twitter:description"
-      content="Five autonomous units. One coordinated mission."
-    />
+    <meta name="twitter:title" content="ORLYNZA 2080 — Neural Mission System" />
+    <meta name="twitter:description" content="Five autonomous units. One coordinated intelligence." />
     <meta name="twitter:image" content="assets/orlynza-command-deck.jpg" />
-    <title>ORLYNZA — Mission Control</title>
+    <title>ORLYNZA 2080 — Neural Mission System</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <canvas class="signal-field" id="signalField" aria-hidden="true"></canvas>
-    <div class="cursor-aura" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="scroll-meter" aria-hidden="true"><span id="scrollMeter"></span></div>
+    <canvas id="voidField" class="void-field" aria-hidden="true"></canvas>
+    <div class="cursor-field" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="page-progress" aria-hidden="true"><i id="pageProgress"></i></div>
 
-    <div class="boot-screen" id="bootScreen" role="status" aria-live="polite">
-      <div class="boot-mark" aria-hidden="true"><span>O</span></div>
-      <p class="eyebrow">ORLYNZA OPERATING SYSTEM</p>
-      <div class="boot-line"><span id="bootProgress"></span></div>
-      <div class="boot-data">
-        <span id="bootMessage">Establishing secure uplink</span>
-        <span id="bootPercent">00%</span>
+    <div class="boot" id="boot" role="status" aria-live="polite">
+      <div class="boot__halo" aria-hidden="true"><i></i><i></i><strong>O</strong></div>
+      <div class="boot__copy">
+        <p>ORLYNZA // NEURAL OPERATING LAYER</p>
+        <div class="boot__bar"><i id="bootBar"></i></div>
+        <div><span id="bootMessage">Opening quantum channel</span><b id="bootValue">000</b></div>
       </div>
-      <button class="skip-boot" id="skipBoot" type="button">Skip sequence</button>
+      <button id="skipBoot" type="button">BYPASS INTRO</button>
     </div>
 
-    <header class="topbar">
-      <a class="brand" href="#command" aria-label="ORLYNZA Mission Control home">
-        <span class="brand-sigil" aria-hidden="true"><i></i></span>
-        <span>ORLYNZA</span>
+    <header class="command-rail" id="commandRail">
+      <a class="brand" href="#command" aria-label="ORLYNZA home">
+        <span class="brand__mark" aria-hidden="true"><i></i><b>O</b></span>
+        <span><strong>ORLYNZA</strong><small>NEURAL SYSTEMS / 2080</small></span>
       </a>
-      <div class="system-state" id="systemState">
-        <i aria-hidden="true"></i>
-        <span>5 UNITS ONLINE</span>
+
+      <div class="rail-status" aria-label="System status">
+        <i></i><span>CORE ONLINE</span><b>05 / 05</b>
       </div>
-      <nav aria-label="Primary navigation">
-        <a href="#units">Units</a>
-        <a href="#mission">Missions</a>
-        <a class="nav-cta" href="#mission">Enter control</a>
+
+      <nav id="primaryNav" aria-label="Primary navigation">
+        <a href="#units"><span>01</span> INTELLIGENCES</a>
+        <a href="#mission"><span>02</span> MISSION CONTROL</a>
+        <a class="rail-cta" href="#mission">ENTER THE CORE <b>↗</b></a>
       </nav>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-controls="primaryNav" aria-expanded="false" aria-label="Open navigation">
         <span></span><span></span>
       </button>
     </header>
 
     <main>
-      <section class="command-deck" id="command" aria-labelledby="commandTitle">
-        <div class="deck-grid" aria-hidden="true"></div>
-        <div class="deck-copy reveal">
-          <p class="eyebrow"><span>01</span> ACTIVE COMMAND DECK</p>
-          <h1 id="commandTitle">Direct the<br /><em>impossible.</em></h1>
-          <p class="deck-intro">
-            Five autonomous AI units. One coordinated operating system built to turn a business objective into action.
-          </p>
-          <div class="live-metrics" aria-label="Live system metrics">
-            <div><strong>99.8%</strong><span>System integrity</span></div>
-            <div><strong>05</strong><span>Specialized units</span></div>
-            <div><strong>24/7</strong><span>Mission readiness</span></div>
-          </div>
-        </div>
+      <section class="origin" id="command" aria-labelledby="originTitle">
+        <div class="origin__grid" aria-hidden="true"></div>
+        <div class="origin__flare" aria-hidden="true"></div>
 
-        <div class="unit-stage reveal" data-parallax="0.055">
-          <div class="stage-orbit orbit-one" aria-hidden="true"></div>
-          <div class="stage-orbit orbit-two" aria-hidden="true"></div>
-          <figure class="robot-formation">
-            <img
-              src="assets/orlynza-command-deck.jpg"
-              alt="Five ORLYNZA AI units assembled inside a futuristic mission control chamber"
-            />
-            <div class="formation-shade" aria-hidden="true"></div>
-          </figure>
-          <button class="unit-hotspot h-1" type="button" data-unit="archon" aria-label="Inspect ARCHON strategy unit"><span>01</span></button>
-          <button class="unit-hotspot h-2" type="button" data-unit="forge" aria-label="Inspect FORGE build unit"><span>02</span></button>
-          <button class="unit-hotspot h-3" type="button" data-unit="muse" aria-label="Inspect MUSE creative unit"><span>03</span></button>
-          <button class="unit-hotspot h-4" type="button" data-unit="vector" aria-label="Inspect VECTOR growth unit"><span>04</span></button>
-          <button class="unit-hotspot h-5" type="button" data-unit="aegis" aria-label="Inspect AEGIS operations unit"><span>05</span></button>
-          <div class="stage-caption">
-            <span>ORLYNZA / FORMATION 01</span>
-            <span>SELECT A UNIT</span>
-          </div>
-        </div>
-
-        <aside class="quick-control reveal" aria-labelledby="quickMissionTitle">
-          <div class="panel-heading">
-            <span class="panel-index">MC–01</span>
-            <span class="secure-label"><i></i> SECURE</span>
-          </div>
-          <p class="eyebrow">QUICK MISSION</p>
-          <h2 id="quickMissionTitle">Choose your objective</h2>
-          <div class="quick-options" id="quickOptions">
-            <button class="quick-option is-active" type="button" data-mission="brand">
-              <span>01</span><strong>Brand Genesis</strong><i></i>
-            </button>
-            <button class="quick-option" type="button" data-mission="commerce">
-              <span>02</span><strong>Commerce Launch</strong><i></i>
-            </button>
-            <button class="quick-option" type="button" data-mission="growth">
-              <span>03</span><strong>Growth Offensive</strong><i></i>
-            </button>
-            <button class="quick-option" type="button" data-mission="autonomy">
-              <span>04</span><strong>Autonomous Ops</strong><i></i>
-            </button>
-          </div>
-          <a class="command-link" href="#mission">Configure full protocol <span>↘</span></a>
+        <aside class="side-telemetry side-telemetry--left" aria-hidden="true">
+          <span>SECTOR / NX-08</span>
+          <i></i>
+          <span>LAT 33.9716</span>
+          <span>LONG −6.8498</span>
         </aside>
 
-        <div class="scroll-cue" aria-hidden="true"><span></span> SCROLL TO INSPECT UNITS</div>
-      </section>
-
-      <section class="units-section" id="units" aria-labelledby="unitsTitle">
-        <div class="section-kicker reveal">
-          <p class="eyebrow"><span>02</span> THE FIVE UNITS</p>
-          <p>Independent specialists. Synchronized execution.</p>
-        </div>
-        <div class="units-heading reveal">
-          <h2 id="unitsTitle">One intelligence<br />is never <em>enough.</em></h2>
-          <p>
-            Each unit owns a critical business function. Mission Control connects them into one accountable system—no fractured tools, no lost context.
-          </p>
+        <div class="origin__copy reveal">
+          <p class="signal-label"><i></i> TRANSMISSION RECEIVED // YEAR 2080</p>
+          <h1 id="originTitle">
+            <span>INTELLIGENCE</span>
+            <span class="outline">ORCHESTRATED</span>
+            <em>BEYOND HUMAN SPEED.</em>
+          </h1>
+          <p class="origin__intro">A five-unit intelligence organism designed to transform ambition into coordinated execution.</p>
+          <a class="vector-link" href="#units"><span>DISCOVER THE FIVE</span><i>↓</i></a>
         </div>
 
-        <div class="units-rail">
-          <article class="unit-card reveal is-selected" data-unit="archon" tabindex="0">
-            <div class="card-top"><span>UNIT 01</span><i>ACTIVE</i></div>
-            <div class="unit-visual" aria-hidden="true">
-              <div class="unit-glyph glyph-archon"><span class="unit-core"></span></div>
-              <div class="unit-robot robot-archon"><span class="robot-body"></span><span class="robot-scan"></span></div>
-            </div>
-            <h3>ARCHON</h3>
-            <p class="unit-role">Strategy Intelligence</p>
-            <p class="unit-desc">Maps the market, sharpens the offer and turns ambiguity into a decisive operating plan.</p>
-            <ul><li>Market intelligence</li><li>Offer architecture</li><li>Decision systems</li></ul>
-            <button type="button" aria-label="Select ARCHON for mission">UNIT SELECTED <span>✓</span></button>
-          </article>
-
-          <article class="unit-card reveal" data-unit="forge" tabindex="0">
-            <div class="card-top"><span>UNIT 02</span><i>READY</i></div>
-            <div class="unit-visual" aria-hidden="true">
-              <div class="unit-glyph glyph-forge"><span class="unit-core"></span></div>
-              <div class="unit-robot robot-forge"><span class="robot-body"></span><span class="robot-scan"></span></div>
-            </div>
-            <h3>FORGE</h3>
-            <p class="unit-role">Digital Engineering</p>
-            <p class="unit-desc">Builds the storefronts, sites and conversion systems that make the mission tangible.</p>
-            <ul><li>Web experiences</li><li>Commerce systems</li><li>Automation builds</li></ul>
-            <button type="button" aria-label="Select FORGE for mission">ADD TO MISSION <span>+</span></button>
-          </article>
-
-          <article class="unit-card reveal" data-unit="muse" tabindex="0">
-            <div class="card-top"><span>UNIT 03</span><i>READY</i></div>
-            <div class="unit-visual" aria-hidden="true">
-              <div class="unit-glyph glyph-muse"><span class="unit-core"></span></div>
-              <div class="unit-robot robot-muse"><span class="robot-body"></span><span class="robot-scan"></span></div>
-            </div>
-            <h3>MUSE</h3>
-            <p class="unit-role">Creative Intelligence</p>
-            <p class="unit-desc">Creates the identity, cinematic content and narratives that give the brand gravity.</p>
-            <ul><li>Brand direction</li><li>AI content studio</li><li>Campaign systems</li></ul>
-            <button type="button" aria-label="Select MUSE for mission">ADD TO MISSION <span>+</span></button>
-          </article>
-
-          <article class="unit-card reveal" data-unit="vector" tabindex="0">
-            <div class="card-top"><span>UNIT 04</span><i>READY</i></div>
-            <div class="unit-visual" aria-hidden="true">
-              <div class="unit-glyph glyph-vector"><span class="unit-core"></span></div>
-              <div class="unit-robot robot-vector"><span class="robot-body"></span><span class="robot-scan"></span></div>
-            </div>
-            <h3>VECTOR</h3>
-            <p class="unit-role">Growth Operations</p>
-            <p class="unit-desc">Finds demand, opens conversations and converts attention into a measurable pipeline.</p>
-            <ul><li>Lead intelligence</li><li>Outbound systems</li><li>Growth campaigns</li></ul>
-            <button type="button" aria-label="Select VECTOR for mission">ADD TO MISSION <span>+</span></button>
-          </article>
-
-          <article class="unit-card reveal" data-unit="aegis" tabindex="0">
-            <div class="card-top"><span>UNIT 05</span><i>READY</i></div>
-            <div class="unit-visual" aria-hidden="true">
-              <div class="unit-glyph glyph-aegis"><span class="unit-core"></span></div>
-              <div class="unit-robot robot-aegis"><span class="robot-body"></span><span class="robot-scan"></span></div>
-            </div>
-            <h3>AEGIS</h3>
-            <p class="unit-role">Quality & Continuity</p>
-            <p class="unit-desc">Guards delivery quality, client continuity and the operating standard after launch.</p>
-            <ul><li>Quality assurance</li><li>Client operations</li><li>Continuous tuning</li></ul>
-            <button type="button" aria-label="Select AEGIS for mission">ADD TO MISSION <span>+</span></button>
-          </article>
-        </div>
-
-        <div class="unit-dossier reveal" id="unitDossier" aria-live="polite">
-          <div><span id="dossierId">O–01</span><strong id="dossierName">ARCHON</strong></div>
-          <p id="dossierCopy">Strategic command unit. Converts research into a prioritized, measurable mission architecture.</p>
-          <div class="dossier-stats">
-            <span><i style="--value: 96%"></i><b>Analysis</b></span>
-            <span><i style="--value: 91%"></i><b>Planning</b></span>
-            <span><i style="--value: 88%"></i><b>Coordination</b></span>
+        <div class="nexus reveal" id="nexus" aria-label="Interactive ORLYNZA neural core">
+          <div class="nexus__frame">
+            <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+            <span class="corner corner--bl"></span><span class="corner corner--br"></span>
+            <figure class="nexus__image">
+              <img src="assets/orlynza-command-deck.jpg" alt="The five ORLYNZA units inside a futuristic command vessel" />
+            </figure>
+            <div class="nexus__scan" aria-hidden="true"></div>
+            <div class="nexus__readout"><span>LIVE FORMATION</span><b>NEURAL SYNC 99.82%</b></div>
           </div>
+
+          <div class="quantum-core" aria-hidden="true">
+            <i class="q-ring q-ring--one"></i><i class="q-ring q-ring--two"></i><i class="q-ring q-ring--three"></i>
+            <span></span><b>O</b>
+          </div>
+
+          <button class="nexus-node node--archon" data-unit-focus="archon" type="button" aria-label="Focus ARCHON"><span>01</span><b>ARCHON</b><i></i></button>
+          <button class="nexus-node node--forge" data-unit-focus="forge" type="button" aria-label="Focus FORGE"><span>02</span><b>FORGE</b><i></i></button>
+          <button class="nexus-node node--muse" data-unit-focus="muse" type="button" aria-label="Focus MUSE"><span>03</span><b>MUSE</b><i></i></button>
+          <button class="nexus-node node--vector" data-unit-focus="vector" type="button" aria-label="Focus VECTOR"><span>04</span><b>VECTOR</b><i></i></button>
+          <button class="nexus-node node--aegis" data-unit-focus="aegis" type="button" aria-label="Focus AEGIS"><span>05</span><b>AEGIS</b><i></i></button>
+        </div>
+
+        <div class="origin__footer" aria-hidden="true">
+          <span><i></i> QUANTUM LINK STABLE</span>
+          <span>SCROLL TO DESCEND INTO THE SYSTEM</span>
+          <span id="liveClock">00:00:00 UTC</span>
         </div>
       </section>
 
-      <section class="mission-section" id="mission" aria-labelledby="missionTitle">
-        <div class="mission-backdrop" aria-hidden="true"></div>
-        <div class="mission-heading reveal">
-          <p class="eyebrow"><span>03</span> MISSION CONTROL</p>
-          <h2 id="missionTitle">Define the objective.<br /><em>Deploy the system.</em></h2>
+      <section class="manifesto" aria-label="ORLYNZA system statement">
+        <div class="manifesto__orbit" aria-hidden="true"><i></i><i></i></div>
+        <p class="reveal">THIS IS NOT SOFTWARE YOU USE.</p>
+        <h2 class="reveal">IT IS INTELLIGENCE<br /><em>YOU DEPLOY.</em></h2>
+        <div class="manifesto__data reveal">
+          <span><b>05</b> AUTONOMOUS MINDS</span>
+          <span><b>01</b> SHARED MEMORY</span>
+          <span><b>∞</b> EXECUTION CAPACITY</span>
         </div>
+      </section>
 
-        <div class="control-console reveal">
-          <div class="console-topline">
-            <div><i></i> ORLYNZA CORE CONNECTED</div>
-            <div id="consoleClock">00:00:00 UTC</div>
+      <section class="intelligence" id="units" aria-labelledby="unitsTitle">
+        <header class="section-head reveal">
+          <div>
+            <p class="signal-label"><i></i> NEURAL ARRAY // 01</p>
+            <h2 id="unitsTitle">FIVE FORMS.<br /><em>ONE MIND.</em></h2>
+          </div>
+          <p>Each unit carries a distinct intelligence signature. Move through the array and watch the system reconfigure around its specialist.</p>
+        </header>
+
+        <div class="unit-os reveal" id="unitOS" data-active-unit="archon">
+          <div class="unit-os__topline">
+            <span>ORLYNZA / INTELLIGENCE DIRECTORY</span>
+            <b><i></i> BIO-SYNTHETIC LINK ACTIVE</b>
+            <span id="unitCoordinates">U–01 // 84.002</span>
           </div>
 
-          <div class="console-layout">
-            <div class="mission-library">
-              <p class="console-label">01 / SELECT PROTOCOL</p>
-              <div class="mission-tabs" role="tablist" aria-label="Mission protocols">
-                <button role="tab" aria-selected="true" class="is-active" data-mission="brand" type="button"><span>01</span>Brand Genesis</button>
-                <button role="tab" aria-selected="false" data-mission="commerce" type="button"><span>02</span>Commerce Launch</button>
-                <button role="tab" aria-selected="false" data-mission="growth" type="button"><span>03</span>Growth Offensive</button>
-                <button role="tab" aria-selected="false" data-mission="autonomy" type="button"><span>04</span>Autonomous Ops</button>
-                <button role="tab" aria-selected="false" data-mission="custom" type="button"><span>05</span>Custom Protocol</button>
-              </div>
-            </div>
+          <div class="unit-selector" role="tablist" aria-label="Select an ORLYNZA unit">
+            <button class="is-active" data-unit="archon" role="tab" aria-selected="true" type="button"><span>01</span><b>ARCHON</b><i></i></button>
+            <button data-unit="forge" role="tab" aria-selected="false" type="button"><span>02</span><b>FORGE</b><i></i></button>
+            <button data-unit="muse" role="tab" aria-selected="false" type="button"><span>03</span><b>MUSE</b><i></i></button>
+            <button data-unit="vector" role="tab" aria-selected="false" type="button"><span>04</span><b>VECTOR</b><i></i></button>
+            <button data-unit="aegis" role="tab" aria-selected="false" type="button"><span>05</span><b>AEGIS</b><i></i></button>
+          </div>
 
-            <div class="mission-brief">
-              <p class="console-label">02 / MISSION BRIEF</p>
-              <div class="brief-title-row">
-                <div><span id="missionCode">PROTOCOL 01</span><h3 id="missionName">BRAND GENESIS</h3></div>
-                <div class="risk-badge"><span>COMPLEXITY</span><b id="missionRisk">MEDIUM</b></div>
+          <div class="unit-chamber">
+            <div class="chamber__depth" aria-hidden="true"></div>
+            <div class="chamber__halo" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="chamber__platform" aria-hidden="true"><i></i></div>
+            <div class="robot-stack" aria-hidden="true">
+              <figure class="robot robot--archon is-active" data-robot="archon"><img src="assets/unit-archon.png" alt="" /></figure>
+              <figure class="robot robot--forge" data-robot="forge"><img src="assets/unit-forge.png" alt="" /></figure>
+              <figure class="robot robot--muse" data-robot="muse"><img src="assets/unit-muse.png" alt="" /></figure>
+              <figure class="robot robot--vector" data-robot="vector"><img src="assets/unit-vector.png" alt="" /></figure>
+              <figure class="robot robot--aegis" data-robot="aegis"><img src="assets/unit-aegis.png" alt="" /></figure>
+            </div>
+            <div class="chamber__scan" aria-hidden="true"></div>
+            <span class="chamber__status" id="chamberStatus">STRATEGIC COMMAND ENTITY</span>
+          </div>
+
+          <article class="unit-dossier" aria-live="polite">
+            <div class="dossier__code"><span id="unitCode">ENTITY // O–01</span><i id="unitRole">STRATEGY INTELLIGENCE</i></div>
+            <h3 id="unitName">ARCHON</h3>
+            <p id="unitCopy">Maps markets, sharpens offers and converts uncertainty into a decisive operating architecture.</p>
+            <div class="capability-grid" id="capabilityGrid">
+              <span>MARKET INTELLIGENCE</span><span>OFFER ARCHITECTURE</span><span>DECISION SYSTEMS</span>
+            </div>
+            <div class="neural-metrics" id="neuralMetrics">
+              <div><span>ANALYSIS</span><i><b style="--level:96%"></b></i><em>96</em></div>
+              <div><span>PLANNING</span><i><b style="--level:91%"></b></i><em>91</em></div>
+              <div><span>COORDINATION</span><i><b style="--level:88%"></b></i><em>88</em></div>
+            </div>
+            <button class="assign-unit is-assigned" id="assignUnit" type="button"><span>ASSIGNED TO FORMATION</span><b>✓</b></button>
+          </article>
+        </div>
+
+        <div class="unit-index" aria-label="Unit summaries">
+          <article class="unit-index__item reveal is-current" data-unit-card="archon"><span>O–01</span><h3>ARCHON</h3><p>Strategy / Architecture / Decisions</p><i></i></article>
+          <article class="unit-index__item reveal" data-unit-card="forge"><span>O–02</span><h3>FORGE</h3><p>Engineering / Commerce / Automation</p><i></i></article>
+          <article class="unit-index__item reveal" data-unit-card="muse"><span>O–03</span><h3>MUSE</h3><p>Identity / Narrative / Content</p><i></i></article>
+          <article class="unit-index__item reveal" data-unit-card="vector"><span>O–04</span><h3>VECTOR</h3><p>Demand / Campaigns / Pipeline</p><i></i></article>
+          <article class="unit-index__item reveal" data-unit-card="aegis"><span>O–05</span><h3>AEGIS</h3><p>Quality / Continuity / Evolution</p><i></i></article>
+        </div>
+      </section>
+
+      <section class="mission" id="mission" aria-labelledby="missionTitle">
+        <div class="mission__wormhole" aria-hidden="true"><i></i><i></i><i></i></div>
+        <header class="mission__head reveal">
+          <p class="signal-label"><i></i> COMMAND LAYER // 02</p>
+          <h2 id="missionTitle">DECLARE AN OUTCOME.<br /><em>AWAKEN THE SYSTEM.</em></h2>
+        </header>
+
+        <div class="mission-console reveal" id="missionConsole">
+          <div class="console__header">
+            <div><i></i><span>ORLYNZA QUANTUM COMMAND</span></div>
+            <div><span>SECURE CHANNEL</span><b id="consoleClock">00:00:00</b></div>
+          </div>
+
+          <div class="console__body">
+            <section class="protocols" aria-labelledby="protocolLabel">
+              <p class="console-label" id="protocolLabel">01 // SELECT MISSION PROTOCOL</p>
+              <div class="protocol-list" role="tablist" aria-label="Mission protocols">
+                <button class="is-active" role="tab" aria-selected="true" data-mission="brand" type="button"><span>PX–01</span><b>BRAND GENESIS</b><i>↗</i></button>
+                <button role="tab" aria-selected="false" data-mission="commerce" type="button"><span>PX–02</span><b>COMMERCE LAUNCH</b><i>↗</i></button>
+                <button role="tab" aria-selected="false" data-mission="growth" type="button"><span>PX–03</span><b>GROWTH OFFENSIVE</b><i>↗</i></button>
+                <button role="tab" aria-selected="false" data-mission="autonomy" type="button"><span>PX–04</span><b>AUTONOMOUS OPS</b><i>↗</i></button>
+                <button role="tab" aria-selected="false" data-mission="custom" type="button"><span>PX–05</span><b>CUSTOM PROTOCOL</b><i>↗</i></button>
               </div>
-              <p id="missionDescription">
-                Transform an early business idea into a distinct, market-ready brand with a strategic position, visual world and launch system.
-              </p>
-              <label class="objective-field" for="missionObjective">
-                <span>Your objective</span>
-                <textarea id="missionObjective" rows="3" placeholder="Describe the outcome ORLYNZA must deliver…">Build a premium, credible brand system ready to enter the market.</textarea>
-                <i><span id="charCount">63</span>/280</i>
+            </section>
+
+            <section class="mission-brief" aria-labelledby="briefName">
+              <p class="console-label">02 // DEFINE DESIRED REALITY</p>
+              <div class="brief__heading">
+                <div><span id="missionCode">PROTOCOL // PX–01</span><h3 id="briefName">BRAND GENESIS</h3></div>
+                <div><span>COMPLEXITY</span><b id="missionRisk">MEDIUM</b></div>
+              </div>
+              <p class="brief__description" id="missionDescription">Transform an early business idea into a distinct, market-ready brand with a strategic position, visual world and launch system.</p>
+              <label class="objective" for="missionObjective">
+                <span>TRANSMIT MISSION OBJECTIVE</span>
+                <textarea id="missionObjective" rows="4" maxlength="280">Build a premium, credible brand system ready to enter the market.</textarea>
+                <i><b id="charCount">63</b> / 280</i>
               </label>
-              <div class="deliverables">
-                <span>EXPECTED OUTPUT</span>
-                <ul id="deliverablesList">
-                  <li>Market position</li><li>Identity system</li><li>Launch narrative</li><li>90-day plan</li>
-                </ul>
-              </div>
-            </div>
+              <div class="outputs"><span>PROJECTED OUTPUTS</span><div id="outputs"><i>MARKET POSITION</i><i>IDENTITY SYSTEM</i><i>LAUNCH NARRATIVE</i><i>90-DAY PLAN</i></div></div>
+            </section>
 
-            <div class="deployment-panel">
-              <p class="console-label">03 / ASSIGN UNITS</p>
-              <div class="assigned-units" id="assignedUnits" aria-label="Assigned ORLYNZA units"></div>
-              <div class="deployment-metrics">
-                <div><span>EST. CYCLE</span><strong id="missionDuration">21 DAYS</strong></div>
-                <div><span>UNITS</span><strong id="unitCount">3 / 5</strong></div>
-                <div><span>READINESS</span><strong id="readiness">94%</strong></div>
+            <section class="formation" aria-labelledby="formationLabel">
+              <p class="console-label" id="formationLabel">03 // ASSEMBLE FORMATION</p>
+              <div class="formation-orbit" id="formationOrbit">
+                <div class="formation-orbit__core"><span>SYNC</span><b id="readiness">94%</b></div>
+                <button class="is-active" data-unit-toggle="archon" type="button" aria-label="Toggle ARCHON"><span>A</span><b>ARCHON</b></button>
+                <button class="is-active" data-unit-toggle="muse" type="button" aria-label="Toggle MUSE"><span>M</span><b>MUSE</b></button>
+                <button class="is-active" data-unit-toggle="vector" type="button" aria-label="Toggle VECTOR"><span>V</span><b>VECTOR</b></button>
+                <button data-unit-toggle="forge" type="button" aria-label="Toggle FORGE"><span>F</span><b>FORGE</b></button>
+                <button data-unit-toggle="aegis" type="button" aria-label="Toggle AEGIS"><span>Æ</span><b>AEGIS</b></button>
               </div>
-              <button class="launch-button" id="launchMission" type="button">
-                <span>INITIATE PROTOCOL</span><i aria-hidden="true">↗</i>
-              </button>
-              <p class="launch-note">A mission brief will be generated before any execution begins.</p>
-            </div>
+              <div class="formation__meta"><span>MISSION CYCLE <b id="missionDuration">21 DAYS</b></span><span>ACTIVE ENTITIES <b id="unitCount">03 / 05</b></span></div>
+            </section>
           </div>
 
-          <div class="mission-log" id="missionLog" aria-live="polite">
-            <span>SYS 00</span>
-            <p>Mission Control standing by. Select a protocol to continue.</p>
+          <div class="launch-zone">
+            <div class="system-log" aria-live="polite"><span id="logCode">SYS.000</span><p id="missionLog">Awaiting command input. All decisions require human confirmation.</p></div>
+            <button id="launchMission" type="button"><span>INITIATE NEURAL PROTOCOL</span><i>↗</i></button>
+          </div>
+
+          <div class="deployment-sequence" id="deploymentSequence" aria-hidden="true">
+            <div class="sequence-core"><i></i><span>DEPLOYING</span><b id="sequenceValue">00%</b></div>
+            <div class="sequence-copy"><span id="sequenceCode">PX–01</span><h3 id="sequenceTitle">SYNCHRONIZING REALITY</h3><p id="sequenceLog">Opening encrypted mission channel…</p></div>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="footer-brand"><span class="brand-sigil" aria-hidden="true"><i></i></span><strong>ORLYNZA</strong></div>
-      <p>INTELLIGENT BUSINESS OPERATIONS / 2026</p>
-      <a href="#command">RETURN TO COMMAND <span>↑</span></a>
+      <a class="brand" href="#command"><span class="brand__mark" aria-hidden="true"><i></i><b>O</b></span><span><strong>ORLYNZA</strong><small>INTELLIGENCE, ORCHESTRATED.</small></span></a>
+      <p>FIVE AUTONOMOUS UNITS / ONE HUMAN-CONTROLLED SYSTEM</p>
+      <a class="footer-return" href="#command">RETURN TO ORBIT <span>↑</span></a>
     </footer>
 
-    <dialog class="unit-modal" id="unitModal">
-      <button class="modal-close" id="modalClose" type="button" aria-label="Close unit dossier">×</button>
-      <p class="eyebrow" id="modalIndex">UNIT 01 / STRATEGY INTELLIGENCE</p>
-      <h2 id="modalName">ARCHON</h2>
-      <p id="modalDescription">Strategic command unit.</p>
-      <div class="modal-capabilities" id="modalCapabilities"></div>
-      <button class="modal-select" id="modalSelect" type="button">ADD UNIT TO MISSION</button>
-    </dialog>
-
-    <noscript>
-      <style>.boot-screen{display:none!important}</style>
-      <div class="noscript-note">Enable JavaScript to activate Mission Control interactions.</div>
-    </noscript>
+    <noscript><div class="noscript">Enable JavaScript to enter ORLYNZA Mission Control.</div></noscript>
   </body>
 </html>

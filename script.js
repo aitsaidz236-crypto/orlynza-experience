@@ -1,208 +1,230 @@
 const units = {
   archon: {
-    id: "O–01",
+    code: "O–01",
     name: "ARCHON",
-    role: "Strategy Intelligence",
-    copy: "Strategic command unit. Converts research into a prioritized, measurable mission architecture.",
-    capabilities: ["Market intelligence", "Offer architecture", "Decision systems"],
-    stats: [["Analysis", 96], ["Planning", 91], ["Coordination", 88]],
+    role: "STRATEGY INTELLIGENCE",
+    status: "STRATEGIC COMMAND ENTITY",
+    coordinates: "U–01 // 84.002",
+    copy: "Maps markets, sharpens offers and converts uncertainty into a decisive operating architecture.",
+    capabilities: ["MARKET INTELLIGENCE", "OFFER ARCHITECTURE", "DECISION SYSTEMS"],
+    metrics: [["ANALYSIS", 96], ["PLANNING", 91], ["COORDINATION", 88]],
   },
   forge: {
-    id: "O–02",
+    code: "O–02",
     name: "FORGE",
-    role: "Digital Engineering",
-    copy: "Engineering unit. Converts the mission architecture into fast, precise digital systems built to perform.",
-    capabilities: ["Web experiences", "Commerce systems", "Automation builds"],
-    stats: [["Engineering", 97], ["Systems", 94], ["Conversion", 89]],
+    role: "DIGITAL ENGINEERING",
+    status: "SYNTHETIC BUILD ENTITY",
+    coordinates: "U–02 // 71.884",
+    copy: "Engineers high-performance sites, commerce systems and automations that turn the mission into working infrastructure.",
+    capabilities: ["WEB EXPERIENCES", "COMMERCE SYSTEMS", "AUTOMATION BUILDS"],
+    metrics: [["ENGINEERING", 97], ["SYSTEMS", 94], ["CONVERSION", 89]],
   },
   muse: {
-    id: "O–03",
+    code: "O–03",
     name: "MUSE",
-    role: "Creative Intelligence",
-    copy: "Creative unit. Builds a coherent world of identity, narrative and content around the business objective.",
-    capabilities: ["Brand direction", "AI content studio", "Campaign systems"],
-    stats: [["Identity", 95], ["Narrative", 93], ["Production", 90]],
+    role: "CREATIVE INTELLIGENCE",
+    status: "GENERATIVE CULTURE ENTITY",
+    coordinates: "U–03 // 93.317",
+    copy: "Creates identity, narrative and cinematic content that gives a business a coherent world people can recognize and remember.",
+    capabilities: ["BRAND DIRECTION", "AI CONTENT STUDIO", "CAMPAIGN SYSTEMS"],
+    metrics: [["IDENTITY", 95], ["NARRATIVE", 93], ["PRODUCTION", 90]],
   },
   vector: {
-    id: "O–04",
+    code: "O–04",
     name: "VECTOR",
-    role: "Growth Operations",
-    copy: "Growth unit. Identifies demand, creates qualified conversations and makes pipeline movement measurable.",
-    capabilities: ["Lead intelligence", "Outbound systems", "Growth campaigns"],
-    stats: [["Prospecting", 94], ["Campaigns", 91], ["Pipeline", 92]],
+    role: "GROWTH OPERATIONS",
+    status: "MARKET VELOCITY ENTITY",
+    coordinates: "U–04 // 62.409",
+    copy: "Finds demand, initiates qualified conversations and converts attention into a measurable, repeatable growth trajectory.",
+    capabilities: ["LEAD INTELLIGENCE", "OUTBOUND SYSTEMS", "GROWTH CAMPAIGNS"],
+    metrics: [["PROSPECTING", 94], ["CAMPAIGNS", 91], ["PIPELINE", 92]],
   },
   aegis: {
-    id: "O–05",
+    code: "O–05",
     name: "AEGIS",
-    role: "Quality & Continuity",
-    copy: "Guardian unit. Protects delivery standards, client experience and operational continuity after launch.",
-    capabilities: ["Quality assurance", "Client operations", "Continuous tuning"],
-    stats: [["Quality", 98], ["Support", 95], ["Continuity", 93]],
+    role: "QUALITY & CONTINUITY",
+    status: "SYSTEM GUARDIAN ENTITY",
+    coordinates: "U–05 // 98.770",
+    copy: "Protects delivery standards, client continuity and system integrity while the mission evolves after launch.",
+    capabilities: ["QUALITY ASSURANCE", "CLIENT OPERATIONS", "CONTINUOUS TUNING"],
+    metrics: [["QUALITY", 98], ["SUPPORT", 95], ["CONTINUITY", 93]],
   },
 };
 
 const missions = {
   brand: {
-    code: "PROTOCOL 01",
+    code: "PX–01",
     name: "BRAND GENESIS",
     risk: "MEDIUM",
     description: "Transform an early business idea into a distinct, market-ready brand with a strategic position, visual world and launch system.",
     objective: "Build a premium, credible brand system ready to enter the market.",
-    deliverables: ["Market position", "Identity system", "Launch narrative", "90-day plan"],
+    outputs: ["MARKET POSITION", "IDENTITY SYSTEM", "LAUNCH NARRATIVE", "90-DAY PLAN"],
     units: ["archon", "muse", "vector"],
     duration: "21 DAYS",
-    readiness: "94%",
   },
   commerce: {
-    code: "PROTOCOL 02",
+    code: "PX–02",
     name: "COMMERCE LAUNCH",
     risk: "HIGH",
-    description: "Deploy a differentiated commerce experience—from offer and storefront to product content, acquisition system and launch readiness.",
+    description: "Deploy a differentiated commerce experience from offer and storefront to content, acquisition and launch readiness.",
     objective: "Launch a premium commerce experience engineered for conversion.",
-    deliverables: ["Offer system", "Commerce build", "Product content", "Launch campaign"],
+    outputs: ["OFFER SYSTEM", "COMMERCE BUILD", "PRODUCT CONTENT", "LAUNCH CAMPAIGN"],
     units: ["archon", "forge", "muse", "vector", "aegis"],
     duration: "35 DAYS",
-    readiness: "91%",
   },
   growth: {
-    code: "PROTOCOL 03",
+    code: "PX–03",
     name: "GROWTH OFFENSIVE",
     risk: "HIGH",
-    description: "Create a focused acquisition engine that finds qualified demand, starts conversations and converts attention into a managed pipeline.",
+    description: "Create a focused acquisition engine that finds qualified demand, starts conversations and converts attention into managed pipeline.",
     objective: "Create a repeatable B2B pipeline with measurable weekly momentum.",
-    deliverables: ["Lead map", "Outbound system", "Campaign assets", "Pipeline dashboard"],
+    outputs: ["LEAD MAP", "OUTBOUND SYSTEM", "CAMPAIGN ASSETS", "PIPELINE CONTROL"],
     units: ["archon", "muse", "vector", "aegis"],
     duration: "28 DAYS",
-    readiness: "92%",
   },
   autonomy: {
-    code: "PROTOCOL 04",
+    code: "PX–04",
     name: "AUTONOMOUS OPS",
     risk: "ADVANCED",
-    description: "Install an AI-assisted operating layer across strategy, delivery, content, growth and client continuity—with human approval at decisive points.",
+    description: "Install an AI-assisted operating layer across strategy, delivery, content, growth and client continuity, with human approval at decisive points.",
     objective: "Build a review-first AI operating system for the business.",
-    deliverables: ["Operating map", "Agent workflows", "Approval system", "Control dashboard"],
+    outputs: ["OPERATING MAP", "AGENT WORKFLOWS", "APPROVAL SYSTEM", "CONTROL DASHBOARD"],
     units: ["archon", "forge", "muse", "vector", "aegis"],
     duration: "42 DAYS",
-    readiness: "88%",
   },
   custom: {
-    code: "PROTOCOL 05",
+    code: "PX–05",
     name: "CUSTOM PROTOCOL",
     risk: "VARIABLE",
     description: "Assemble a custom ORLYNZA formation around an objective that does not fit a standard mission profile.",
     objective: "Describe the exact business outcome ORLYNZA must deliver.",
-    deliverables: ["Mission analysis", "Custom formation", "Execution roadmap", "Success metrics"],
+    outputs: ["MISSION ANALYSIS", "CUSTOM FORMATION", "EXECUTION ROADMAP", "SUCCESS METRICS"],
     units: ["archon"],
     duration: "SCOPING",
-    readiness: "76%",
   },
 };
 
 const state = {
+  focusedUnit: "archon",
   activeMission: "brand",
   selectedUnits: new Set(missions.brand.units),
-  focusedUnit: "archon",
-  launched: false,
+  deploying: false,
 };
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.body.classList.add("booting");
 
-function bootSequence() {
-  const screen = $("#bootScreen");
-  const bar = $("#bootProgress");
-  const percent = $("#bootPercent");
+function runBootSequence() {
+  const overlay = $("#boot");
+  const bar = $("#bootBar");
+  const value = $("#bootValue");
   const message = $("#bootMessage");
   const messages = [
-    [18, "Establishing secure uplink"],
-    [42, "Synchronizing five units"],
-    [67, "Loading mission protocols"],
-    [88, "Verifying command integrity"],
-    [100, "Mission Control online"],
+    [20, "Opening quantum channel"],
+    [41, "Locating five intelligence forms"],
+    [64, "Synchronizing shared memory"],
+    [83, "Calibrating human command layer"],
+    [100, "ORLYNZA core online"],
   ];
   let progress = 0;
-  let interval;
+  let timer;
 
-  const complete = () => {
-    clearInterval(interval);
+  const finish = () => {
+    window.clearInterval(timer);
     progress = 100;
     bar.style.width = "100%";
-    percent.textContent = "100%";
-    message.textContent = "Mission Control online";
+    value.textContent = "100";
+    message.textContent = "ORLYNZA core online";
     window.setTimeout(() => {
-      screen.classList.add("is-complete");
+      overlay.classList.add("is-complete");
       document.body.classList.remove("booting");
-      $$(".command-deck .reveal").forEach((item, index) => {
-        window.setTimeout(() => item.classList.add("in-view"), 120 * index);
-      });
-    }, 260);
+      $$(".origin .reveal").forEach((item, index) => window.setTimeout(() => item.classList.add("in-view"), index * 180));
+    }, reducedMotion ? 0 : 280);
   };
 
-  interval = window.setInterval(() => {
-    progress += Math.max(1, Math.round((100 - progress) / 12));
-    progress = Math.min(progress, 100);
+  timer = window.setInterval(() => {
+    progress = Math.min(100, progress + Math.max(1, Math.round((100 - progress) / 9)));
     bar.style.width = `${progress}%`;
-    percent.textContent = `${String(progress).padStart(2, "0")}%`;
-    const current = messages.find(([threshold]) => progress <= threshold) || messages.at(-1);
+    value.textContent = String(progress).padStart(3, "0");
+    const current = messages.find(([limit]) => progress <= limit) || messages[messages.length - 1];
     message.textContent = current[1];
-    if (progress >= 100) complete();
-  }, 55);
+    if (progress >= 100) finish();
+  }, reducedMotion ? 12 : 48);
 
-  $("#skipBoot").addEventListener("click", complete, { once: true });
+  $("#skipBoot").addEventListener("click", finish, { once: true });
 }
 
-function setupSignalField() {
-  const canvas = $("#signalField");
+function setupVoidField() {
+  const canvas = $("#voidField");
   const context = canvas.getContext("2d");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let points = [];
-  let raf;
+  let particles = [];
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let pointer = { x: -1000, y: -1000 };
 
   const resize = () => {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${window.innerHeight}px`;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const total = Math.min(65, Math.floor(window.innerWidth / 23));
-    points = Array.from({ length: total }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      r: Math.random() * 1.1 + .2,
-      v: Math.random() * .09 + .025,
-      a: Math.random() * .45 + .12,
+    const count = Math.min(90, Math.max(36, Math.round(width / 18)));
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.15 + .2,
+      vy: Math.random() * .12 + .025,
+      vx: (Math.random() - .5) * .04,
+      alpha: Math.random() * .36 + .08,
+      ion: Math.random() > .72,
     }));
   };
 
   const draw = () => {
-    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    for (const point of points) {
+    context.clearRect(0, 0, width, height);
+    particles.forEach((particle) => {
+      const distance = Math.hypot(particle.x - pointer.x, particle.y - pointer.y);
+      const glow = distance < 135 ? (135 - distance) / 135 : 0;
       context.beginPath();
-      context.fillStyle = `rgba(202,165,91,${point.a})`;
-      context.arc(point.x, point.y, point.r, 0, Math.PI * 2);
+      context.fillStyle = particle.ion
+        ? `rgba(115,232,255,${particle.alpha + glow * .42})`
+        : `rgba(202,164,90,${particle.alpha + glow * .3})`;
+      context.arc(particle.x, particle.y, particle.r + glow * 1.4, 0, Math.PI * 2);
       context.fill();
-      if (!reducedMotion) {
-        point.y -= point.v;
-        if (point.y < -2) point.y = window.innerHeight + 2;
+      if (glow > .24) {
+        context.beginPath();
+        context.strokeStyle = `rgba(115,232,255,${glow * .08})`;
+        context.moveTo(particle.x, particle.y);
+        context.lineTo(pointer.x, pointer.y);
+        context.stroke();
       }
-    }
-    if (!reducedMotion) raf = requestAnimationFrame(draw);
+      if (!reducedMotion) {
+        particle.y -= particle.vy;
+        particle.x += particle.vx;
+        if (particle.y < -3) particle.y = height + 3;
+        if (particle.x < -3) particle.x = width + 3;
+        if (particle.x > width + 3) particle.x = -3;
+      }
+    });
+    if (!reducedMotion) window.requestAnimationFrame(draw);
   };
 
+  window.addEventListener("pointermove", (event) => {
+    pointer = { x: event.clientX, y: event.clientY };
+  }, { passive: true });
+  window.addEventListener("resize", resize, { passive: true });
   resize();
   draw();
-  window.addEventListener("resize", () => {
-    cancelAnimationFrame(raf);
-    resize();
-    draw();
-  }, { passive: true });
 }
 
-function setupScrollEffects() {
+function setupScrollSystem() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -210,235 +232,252 @@ function setupScrollEffects() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: .12, rootMargin: "0px 0px -7% 0px" });
+  }, { threshold: .1, rootMargin: "0px 0px -8%" });
 
-  $$(".reveal")
-    .filter((item) => !item.closest(".command-deck"))
-    .forEach((item) => observer.observe(item));
+  $$(".reveal").filter((item) => !item.closest(".origin")).forEach((item) => observer.observe(item));
 
-  const meter = $("#scrollMeter");
-  const parallax = $("[data-parallax]");
   let ticking = false;
   const update = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
-    meter.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
-    if (parallax && window.innerWidth > 820 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const rect = parallax.getBoundingClientRect();
-      const offset = (window.innerHeight * .5 - (rect.top + rect.height * .5)) * Number(parallax.dataset.parallax);
-      parallax.style.translate = `0 ${Math.max(-26, Math.min(26, offset))}px`;
-    }
+    $("#pageProgress").style.width = `${max > 0 ? window.scrollY / max * 100 : 0}%`;
+    $("#commandRail").classList.toggle("is-compact", window.scrollY > 70);
     ticking = false;
   };
   window.addEventListener("scroll", () => {
-    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
   }, { passive: true });
   update();
 }
 
-function setupPointer() {
-  const aura = $(".cursor-aura");
+function setupPointerSystems() {
+  const cursor = $(".cursor-field");
+  const nexus = $("#nexus");
   window.addEventListener("pointermove", (event) => {
-    aura.style.setProperty("--x", `${event.clientX}px`);
-    aura.style.setProperty("--y", `${event.clientY}px`);
+    cursor.style.setProperty("--x", `${event.clientX}px`);
+    cursor.style.setProperty("--y", `${event.clientY}px`);
   }, { passive: true });
+
+  if (!reducedMotion && window.matchMedia("(pointer:fine)").matches) {
+    nexus.addEventListener("pointermove", (event) => {
+      const rect = nexus.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+      nexus.style.setProperty("--ry", `${x * 3.2}deg`);
+      nexus.style.setProperty("--rx", `${y * -2.4}deg`);
+    });
+    nexus.addEventListener("pointerleave", () => {
+      nexus.style.setProperty("--ry", "0deg");
+      nexus.style.setProperty("--rx", "0deg");
+    });
+  }
 }
 
-function renderDossier(unitKey) {
+function setUnit(unitKey, { scroll = false } = {}) {
   const unit = units[unitKey];
   if (!unit) return;
   state.focusedUnit = unitKey;
-  $("#dossierId").textContent = unit.id;
-  $("#dossierName").textContent = unit.name;
-  $("#dossierCopy").textContent = unit.copy;
-  $(".dossier-stats").innerHTML = unit.stats.map(([label, value]) => `
-    <span><i style="--value:${value}%"></i><b>${label} ${value}%</b></span>
+  const os = $("#unitOS");
+  os.dataset.activeUnit = unitKey;
+
+  $$("[data-unit]").forEach((button) => {
+    const active = button.dataset.unit === unitKey;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
+  $$("[data-robot]").forEach((robot) => robot.classList.toggle("is-active", robot.dataset.robot === unitKey));
+  $$("[data-unit-card]").forEach((card) => card.classList.toggle("is-current", card.dataset.unitCard === unitKey));
+
+  $("#unitCoordinates").textContent = unit.coordinates;
+  $("#chamberStatus").textContent = unit.status;
+  $("#unitCode").textContent = `ENTITY // ${unit.code}`;
+  $("#unitRole").textContent = unit.role;
+  $("#unitName").textContent = unit.name;
+  $("#unitCopy").textContent = unit.copy;
+  $(".unit-dossier").dataset.watermark = unit.name.slice(0, 1);
+  $("#capabilityGrid").innerHTML = unit.capabilities.map((item) => `<span>${item}</span>`).join("");
+  $("#neuralMetrics").innerHTML = unit.metrics.map(([label, score]) => `
+    <div><span>${label}</span><i><b style="--level:${score}%"></b></i><em>${score}</em></div>
   `).join("");
+
+  const assigned = state.selectedUnits.has(unitKey);
+  const assignButton = $("#assignUnit");
+  assignButton.classList.toggle("is-assigned", assigned);
+  assignButton.innerHTML = assigned
+    ? "<span>ASSIGNED TO FORMATION</span><b>✓</b>"
+    : "<span>ADD TO FORMATION</span><b>+</b>";
+
+  if (scroll) $("#units").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
 }
 
-function renderUnitSelection() {
-  $$(".unit-card").forEach((card) => {
-    const selected = state.selectedUnits.has(card.dataset.unit);
-    card.classList.toggle("is-selected", selected);
-    $(".card-top i", card).textContent = selected ? "ACTIVE" : "READY";
-    $(":scope > button", card).innerHTML = selected
-      ? "UNIT SELECTED <span>✓</span>"
-      : "ADD TO MISSION <span>+</span>";
-  });
+function calculateReadiness() {
+  return Math.min(99, 72 + state.selectedUnits.size * 5 + (state.activeMission === "custom" ? 0 : 4));
+}
 
-  $("#assignedUnits").innerHTML = [...state.selectedUnits].map((key) => {
-    const unit = units[key];
-    return `<div class="assigned-unit"><span>${unit.name[0]}</span><strong>${unit.name}</strong><i title="Online"></i></div>`;
-  }).join("");
-  $("#unitCount").textContent = `${state.selectedUnits.size} / 5`;
-
-  const readiness = Math.min(99, 70 + state.selectedUnits.size * 5 + (state.activeMission === "custom" ? 0 : 4));
-  $("#readiness").textContent = `${readiness}%`;
+function renderFormation() {
+  $$("[data-unit-toggle]").forEach((button) => button.classList.toggle("is-active", state.selectedUnits.has(button.dataset.unitToggle)));
+  $("#unitCount").textContent = `${String(state.selectedUnits.size).padStart(2, "0")} / 05`;
+  $("#readiness").textContent = `${calculateReadiness()}%`;
+  setUnit(state.focusedUnit);
 }
 
 function toggleUnit(unitKey) {
   if (state.selectedUnits.has(unitKey)) {
     if (state.selectedUnits.size === 1) {
-      updateLog("WARN 01", "At least one ORLYNZA unit is required for mission integrity.");
+      updateMissionLog("WRN.001", "Mission integrity requires at least one active intelligence entity.");
       return;
     }
     state.selectedUnits.delete(unitKey);
   } else {
     state.selectedUnits.add(unitKey);
   }
-  renderUnitSelection();
-  state.launched = false;
-  resetLaunchButton();
+  renderFormation();
+  updateMissionLog("SYS.014", `${units[unitKey].name} ${state.selectedUnits.has(unitKey) ? "linked to" : "released from"} formation.`);
 }
 
-function openUnitModal(unitKey) {
-  const unit = units[unitKey];
-  const modal = $("#unitModal");
-  state.focusedUnit = unitKey;
-  $("#modalIndex").textContent = `${unit.id.replace("O–", "UNIT 0")} / ${unit.role.toUpperCase()}`;
-  $("#modalName").textContent = unit.name;
-  $("#modalDescription").textContent = unit.copy;
-  $("#modalCapabilities").innerHTML = unit.capabilities.map((item) => `<span>${item}</span>`).join("");
-  $("#modalSelect").textContent = state.selectedUnits.has(unitKey) ? "REMOVE UNIT FROM MISSION" : "ADD UNIT TO MISSION";
-  modal.showModal();
-}
-
-function setupUnits() {
-  $$(".unit-card").forEach((card) => {
-    const unitKey = card.dataset.unit;
-    card.addEventListener("mouseenter", () => renderDossier(unitKey));
-    card.addEventListener("focus", () => renderDossier(unitKey));
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openUnitModal(unitKey);
-      }
-    });
-    $(":scope > button", card).addEventListener("click", () => toggleUnit(unitKey));
-  });
-
-  $$(".unit-hotspot").forEach((hotspot) => hotspot.addEventListener("click", () => openUnitModal(hotspot.dataset.unit)));
-  $("#modalClose").addEventListener("click", () => $("#unitModal").close());
-  $("#unitModal").addEventListener("click", (event) => {
-    if (event.target === $("#unitModal")) $("#unitModal").close();
-  });
-  $("#modalSelect").addEventListener("click", () => {
-    toggleUnit(state.focusedUnit);
-    $("#modalSelect").textContent = state.selectedUnits.has(state.focusedUnit) ? "REMOVE UNIT FROM MISSION" : "ADD UNIT TO MISSION";
-  });
-}
-
-function setMission(missionKey, { scroll = false } = {}) {
+function setMission(missionKey) {
   const mission = missions[missionKey];
   if (!mission) return;
   state.activeMission = missionKey;
   state.selectedUnits = new Set(mission.units);
-  state.launched = false;
 
   $$("[data-mission]").forEach((button) => {
     const active = button.dataset.mission === missionKey;
     button.classList.toggle("is-active", active);
-    if (button.getAttribute("role") === "tab") button.setAttribute("aria-selected", String(active));
+    button.setAttribute("aria-selected", String(active));
   });
 
-  $("#missionCode").textContent = mission.code;
-  $("#missionName").textContent = mission.name;
+  $("#missionCode").textContent = `PROTOCOL // ${mission.code}`;
+  $("#briefName").textContent = mission.name;
   $("#missionRisk").textContent = mission.risk;
   $("#missionDescription").textContent = mission.description;
   $("#missionObjective").value = mission.objective;
   $("#charCount").textContent = mission.objective.length;
-  $("#deliverablesList").innerHTML = mission.deliverables.map((item) => `<li>${item}</li>`).join("");
+  $("#outputs").innerHTML = mission.outputs.map((output) => `<i>${output}</i>`).join("");
   $("#missionDuration").textContent = mission.duration;
-  renderUnitSelection();
+  renderFormation();
+  updateMissionLog("SYS.021", `${mission.name} loaded. ${mission.units.length} intelligence entities synchronized.`);
   resetLaunchButton();
-  updateLog("SYS 01", `${mission.name} loaded. ${mission.units.length} units assigned.`);
-  if (scroll) $("#mission").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function updateLog(code, text) {
-  $("#missionLog span").textContent = code;
-  $("#missionLog p").textContent = text;
+function updateMissionLog(code, message) {
+  $("#logCode").textContent = code;
+  $("#missionLog").textContent = message;
 }
 
 function resetLaunchButton() {
   const button = $("#launchMission");
-  button.classList.remove("is-running");
   button.disabled = false;
-  button.innerHTML = "<span>INITIATE PROTOCOL</span><i aria-hidden=\"true\">↗</i>";
-  $("#systemState span").textContent = "5 UNITS ONLINE";
-  $("#systemState").classList.remove("is-deployed");
+  button.innerHTML = "<span>INITIATE NEURAL PROTOCOL</span><i>↗</i>";
 }
 
 function launchMission() {
+  if (state.deploying) return;
   const objective = $("#missionObjective").value.trim();
-  const button = $("#launchMission");
   if (objective.length < 12) {
     $("#missionObjective").focus();
-    updateLog("WARN 02", "Mission objective is too brief. Define a measurable outcome before deployment.");
+    updateMissionLog("WRN.002", "Desired reality is incomplete. Add a measurable mission objective.");
     return;
   }
 
+  state.deploying = true;
+  const mission = missions[state.activeMission];
+  const overlay = $("#deploymentSequence");
+  const value = $("#sequenceValue");
+  const title = $("#sequenceTitle");
+  const log = $("#sequenceLog");
+  const button = $("#launchMission");
   button.disabled = true;
-  button.classList.add("is-running");
-  button.innerHTML = "<span>SYNCHRONIZING UNITS…</span><i aria-hidden=\"true\">◌</i>";
-  updateLog("RUN 01", `Parsing objective: ${objective.slice(0, 72)}${objective.length > 72 ? "…" : ""}`);
+  button.innerHTML = "<span>PROTOCOL IN MOTION</span><i>◌</i>";
+  $("#sequenceCode").textContent = `${mission.code} / ${String(state.selectedUnits.size).padStart(2, "0")} ENTITIES`;
+  overlay.classList.add("is-active");
+  overlay.setAttribute("aria-hidden", "false");
 
-  const logs = [
-    [650, "RUN 02", `ARCHON mapping success criteria for ${missions[state.activeMission].name}.`],
-    [1300, "RUN 03", `${state.selectedUnits.size} assigned units synchronized. Mission architecture stable.`],
-    [2050, "READY", "Protocol initialized. Strategic brief queued for human review before execution."],
+  const phases = [
+    [17, "READING HUMAN INTENT", "Parsing objective and extracting desired reality…"],
+    [39, "FORMING SHARED MEMORY", "ARCHON is constructing the mission architecture…"],
+    [63, "SYNCHRONIZING ENTITIES", `${state.selectedUnits.size} intelligence units are exchanging context…`],
+    [84, "SIMULATING TRAJECTORY", "Testing dependencies, risk and measurable success conditions…"],
+    [100, "MISSION READY", "Strategic brief prepared for human review before execution."],
   ];
-  logs.forEach(([delay, code, text], index) => {
-    window.setTimeout(() => {
-      updateLog(code, text);
-      if (index === logs.length - 1) {
-        state.launched = true;
+  let progress = 0;
+  const timer = window.setInterval(() => {
+    progress = Math.min(100, progress + Math.max(1, Math.ceil((100 - progress) / 11)));
+    value.textContent = `${String(progress).padStart(2, "0")}%`;
+    const phase = phases.find(([limit]) => progress <= limit) || phases[phases.length - 1];
+    title.textContent = phase[1];
+    log.textContent = phase[2];
+    if (progress >= 100) {
+      window.clearInterval(timer);
+      window.setTimeout(() => {
+        overlay.classList.remove("is-active");
+        overlay.setAttribute("aria-hidden", "true");
+        button.innerHTML = "<span>PROTOCOL READY / HUMAN REVIEW</span><i>✓</i>";
+        updateMissionLog("RDY.2080", `${mission.name} is initialized. No external action has been taken.`);
+        state.deploying = false;
         button.disabled = false;
-        button.innerHTML = "<span>PROTOCOL INITIALIZED</span><i aria-hidden=\"true\">✓</i>";
-        $("#systemState span").textContent = "MISSION ACTIVE";
-        $("#systemState").classList.add("is-deployed");
-      }
-    }, delay);
-  });
+      }, reducedMotion ? 0 : 1150);
+    }
+  }, reducedMotion ? 12 : 72);
 }
 
-function setupMissionControl() {
-  $$(".mission-tabs [data-mission]").forEach((button) => button.addEventListener("click", () => setMission(button.dataset.mission)));
-  $$(".quick-option").forEach((button) => button.addEventListener("click", () => setMission(button.dataset.mission, { scroll: true })));
-
-  const objective = $("#missionObjective");
-  objective.addEventListener("input", () => {
-    if (objective.value.length > 280) objective.value = objective.value.slice(0, 280);
-    $("#charCount").textContent = objective.value.length;
-    state.launched = false;
+function setupInteractions() {
+  $$("[data-unit]").forEach((button) => button.addEventListener("click", () => setUnit(button.dataset.unit)));
+  $$("[data-unit-card]").forEach((card) => {
+    card.addEventListener("mouseenter", () => setUnit(card.dataset.unitCard));
+    card.addEventListener("click", () => setUnit(card.dataset.unitCard));
+  });
+  $$("[data-unit-focus]").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.add("is-pulsing");
+      setUnit(button.dataset.unitFocus, { scroll: true });
+      window.setTimeout(() => button.classList.remove("is-pulsing"), 900);
+    });
+  });
+  $("#assignUnit").addEventListener("click", () => toggleUnit(state.focusedUnit));
+  $$("[data-unit-toggle]").forEach((button) => button.addEventListener("click", () => toggleUnit(button.dataset.unitToggle)));
+  $$("[data-mission]").forEach((button) => button.addEventListener("click", () => setMission(button.dataset.mission)));
+  $("#missionObjective").addEventListener("input", (event) => {
+    $("#charCount").textContent = event.target.value.length;
     resetLaunchButton();
   });
   $("#launchMission").addEventListener("click", launchMission);
 
-  const updateClock = () => {
-    $("#consoleClock").textContent = `${new Date().toISOString().slice(11, 19)} UTC`;
-  };
-  updateClock();
-  window.setInterval(updateClock, 1000);
-}
-
-function setupNavigation() {
-  const topbar = $(".topbar");
+  const menu = $("#commandRail");
   const toggle = $("#menuToggle");
   toggle.addEventListener("click", () => {
-    const open = topbar.classList.toggle("menu-open");
+    const open = menu.classList.toggle("menu-open");
     toggle.setAttribute("aria-expanded", String(open));
   });
-  $$(".topbar nav a").forEach((link) => link.addEventListener("click", () => {
-    topbar.classList.remove("menu-open");
+  $$("#primaryNav a").forEach((link) => link.addEventListener("click", () => {
+    menu.classList.remove("menu-open");
     toggle.setAttribute("aria-expanded", "false");
   }));
 }
 
-bootSequence();
-setupSignalField();
-setupScrollEffects();
-setupPointer();
-setupUnits();
-setupMissionControl();
-setupNavigation();
-renderUnitSelection();
+function setupClock() {
+  const update = () => {
+    const time = new Date().toLocaleTimeString("en-GB", {
+      timeZone: "UTC",
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    $("#liveClock").textContent = `${time} UTC`;
+    $("#consoleClock").textContent = time;
+  };
+  update();
+  window.setInterval(update, 1000);
+}
+
+runBootSequence();
+setupVoidField();
+setupScrollSystem();
+setupPointerSystems();
+setupInteractions();
+setupClock();
+setUnit("archon");
+renderFormation();
